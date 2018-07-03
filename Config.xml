@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config>	
+	//	【苏州品奥 - 网络受控视频播放器 v2.0.4】
+	//	1. 流媒体模式：如果【循环播放流媒体视频】配置栏不为空且文件可读，启动将自动播放流媒体视频，自动循环。
+	//	2. 点播模式：视频播放器接收如下UDP指令：
+	//		A. 【replayloopmovie】 -重头开始播放流媒体视频
+	//		B. 【replay】+【序号】 -重头开始播放第【序号】个视频，例如 "replay1"播放第1个视频
+	//		C. 【resume】 -继续播放
+	//		D. 【stop】 -停止播放
+	//		E. 【volumedown】-声音降低5%
+	//		F. 【volumeup】	-声音提高5%
+	//
+	//	视频解码器：
+	//	1. 本解码器支持视频封装格式:【MP4】【MOV】【WMV】【AVI】【ASF/WMV】【MKV】(Windows10 only)【Webm】(Windows10 only)。
+	//	2. 本解码器支持视频编码格式:【H.263】【H.264】【MJPEG】【WMV】【VP8】【VP9】【Hap】【DV】【Lagarith】【HEVC/H.265】(Windows10 only)。
+	//	3. 本解码器支持音频编码格式:【AAC】【MP3】【AC3】【WMA】【MIDI】【μLAW】【ADPCM】【Linear PCM】【FLAC】(Windows10 only)。
+	//	4. 如果自定义视频无法播放请联系管理员下载相应的解码器。
+	//	
+	//	视频配置：
+	//	1. 视频文件均必须储存于本软件【根目录/Media】文件夹下，然后在下方配置各个视频文件名称。
+	//	2. 增添和删除点播视频可直接复制新增或删除该行。
+	//	3. 视频拉伸模式【scaleMode】：
+	//		A. 【stretch】 -  全屏拉伸以适应屏幕。
+	//		B. 【proportionalInside】 -  缩小至屏幕内，上下或左右留黑。
+	//		C. 【proportionalOutside】 -  全屏，上下或左右裁切。	
+	//
+	//	窗体设置：
+	//	1. 本程序启动时请勿运行其他前台软件。
+	//	2. 开启【监测窗体前置】本程序将自动检测并将窗体前置。
+	//	3. 开启【监测窗体分辨率】将自动检测并调整窗体分辨率。
+	//	4. Windows窗体模式下本程序的窗体大小和窗体坐标可配置（Window第一个屏幕左上角为原点。）
+
+
+	<!-- 展项名称 -->
+  	<ProductName>ExhibitName</ProductName>
+	
+	<!-- 网络设置 -->
+	<UDP_Port_Receive>9000</UDP_Port_Receive>
+	<UDP_Port_Send>10000</UDP_Port_Send>
+	<IP_Target>192.168.1.199</IP_Target>
+	<!-- 窗体设置 -->
+	<WindowCheckInterval description="窗体监测间隔/秒">5</WindowCheckInterval>
+	<WindowForegroundCheck description="监测窗体前置">true</WindowForegroundCheck>	
+	<WindowMod description="窗体模式/全屏下无效">true</WindowMod>
+	<WindowPositionX description="窗体坐标">0</WindowPositionX>
+	<WindowPositionY description="窗体坐标">0</WindowPositionY>
+	<WindowWidth description="窗体分辨率">1920</WindowWidth>
+	<WindowHeight description="窗体分辨率">1080</WindowHeight>
+	<AutoResetResolution  description="监测窗体分辨率">true</AutoResetResolution>
+	<!-- 是否隐藏鼠标 -->
+	<MouseHide>true</MouseHide>
+	<!-- 自动返回时间 -->
+	<TimeOut>60</TimeOut>	
+		
+	<!-- 梯形矫正 仅支持1920x1200 投影机 -->
+	<CalibrationEnable>false</CalibrationEnable>
+	
+	<!-- 外部文字 -->
+	<TextList>
+		<Text001><![CDATA[文字内容一]]></Text001>
+	</TextList>	
+	
+	<!-- 背景图片 -->
+	<ImageList>
+		<ImageURL>background.jpg</ImageURL>
+		<ImageURL>black.jpg</ImageURL>
+	</ImageList>	
+	
+	<!-- 外部视频 -->
+	<LoopMovieURL description="循环播放流媒体视频" scaleMode="stretch">TestMovie.mp4</LoopMovieURL>
+	<MovieList>		
+		<MovieURL description="点播视频一" scaleMode="stretch">TestMovie.mp4</MovieURL>
+		<MovieURL description="点播视频二" scaleMode="stretch">Yellowstone in 8K 60P.webm</MovieURL>
+		<MovieURL description="点播视频三" scaleMode="stretch">TestMovie.mp4</MovieURL>
+	</MovieList>	
+</Config>
